@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrderManager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>OrderManager</h1>
+
+    <div class="container">
+        <h2>Ajout d'une commande</h2>
+
+        <!-- button pour fetch les données de la page courante et compléter les informations -->
+        <button id="fetch">Fetch actual page data</button>
+
+        <form action="index.html" method="POST">
+            <label for="name">Nom du client</label>
+            <input type="text" name="name" id="name" placeholder="user001">
+            
+            <label for="product">Produit</label>
+            <input type="text" name="product" id="product" placeholder="Python program">
+            
+            <label for="description">Description</label>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="The project is about..."></textarea>                
+            
+            <label for="platform">Plateforme</label>
+            <select name="platform" id="platform">
+                <option value="Fiverr">Fiverr</option>
+                <option value="ComeUp">ComeUp</option>
+                <option value="Truelancer">Truelancer</option>
+                <option value="PeoplePerHour">PeoplePerHour</option>
+                <option value="OutSourcely">OutSourcely</option>
+            </select>
+            
+            <label for="price">Prix</label>
+            <input type="number" name="price" id="price" placeholder="0.00€" step="0.1">
+            
+            <label for="date">Date de rendu</label>
+            <input type="date" name="date" id="date">
+            
+            <button type="submit">Valider</button>
+    </div>
+</body>
+</html>

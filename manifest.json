@@ -19,7 +19,14 @@
         "gecko": {
             "id": "rems38.dev@gmail.com"
         }
-    }
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["https://comeup.com/*"],
+            "js": ["content_scripts/main.js"]
+        }    
+    ] 
   
   }
   
