@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OrderManager</title>
     <link rel="stylesheet" href="style.css">
@@ -58,7 +59,7 @@
             </div>
 
             <div class="row">
-                <div class="col-half">
+                <div class="col-half col-mode-edit">
                     <h4>Date de livraison</h4>
                     <div class="input-group">
                         <div class="col-third">
@@ -75,9 +76,9 @@
                 <div class="col-half">
                     <h4>Mode</h4>
                     <div class="input-group">
-                        <input id="mode-date" type="radio" name="mode" value="date" checked>
+                        <input id="mode-date" type="radio" name="mode" value="date" onclick="modeChange('date')" checked>
                         <label for="mode-date">Date</label>
-                        <input id="mode-time" type="radio" name="mode" value="time">
+                        <input id="mode-time" type="radio" name="mode" value="time" onclick="modeChange('time')">
                         <label for="mode-time">Temps</label>
                     </div>
                 </div>
@@ -86,5 +87,7 @@
             <button type="submit">Valider</button>
         </form>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
