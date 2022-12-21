@@ -53,18 +53,74 @@ if (window.location.href.includes("index.html")) {
     inputDate.addEventListener("click", () => modeChange("date"));
     inputTime.addEventListener("click", () => modeChange("time"));
 
-
+    var subButton = document.querySelector("button");
     browser.storage.local.get("php_url", result => {
-        if (result.php_url != undefined) {
-            document.querySelector("form").action = result.php_url;
+        if (result.php_url == undefined || result.php_url == "") {
+            subButton.disabled = true;
+            subButton.style.cursor = "not-allowed";
+            subButton.title = "Veuillez renseigner l'URL du serveur dans les paramètres";
+
+            subButton.addEventListener("mouseover", () => {
+                subButton.style.backgroundColor = "red";
+                subButton.style.border = "red 3px solid";
+            });
+            subButton.addEventListener("mouseout", () => {
+                subButton.style.backgroundColor = "#fff";
+                subButton.style.border = "#f0a500 3px solid";
+            });
+        }
+        else {
+            subButton.disabled = false;
+            subButton.style.cursor = "pointer";
+            subButton.title = "";
         }
     });
+
+    var form = document.querySelector("form")
+    form.addEventListener("submit", event => {
+        event.preventDefault();
+
+        const user = form.elements.user.value;
+        const service = form.elements.service.value;
+        const description = form.elements.description.value;
+        const platform = form.elements.platform.value;
+        const price = form.elements.price.value;
+        var date;
+        if (inputDate.checked) {
+            date = form.elements.dateD.value + "-" + form.elements.dateM.value + "-" + form.elements.dateY;
+        }
+        else if (inputTime.checked) {
+            date = form.elements.timeD.value + "-" + form.elements.timeH.value + ":" + form.elements.timeM.value;
+        }
+
+        // Envoie de la requête au serveur
+        var xhr = new XMLHttpRequest();
+        browser.storage.local.get("php_url").then(result => {
+            if (result.php_url) {
+              xhr.open("POST", result.php_url, true);
+              xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+              xhr.send("user=" + user + "&service=" + service + "&description=" + description + "&platform=" + platform + "&price=" + price + "&date=" + date);
+            }
+
+            bigTitle = document.querySelector("h1");
+            
+            bigTitle.innerHTML = "Commande envoyée !";
+            bigTitle.style.color = "green";
+            
+            const timeoutID = setTimeout(() => {
+              bigTitle.innerHTML = "OrderManager";
+              bigTitle.style.color = "#b9b9b9";
+            }, 6000);
+          });
+          
+    });
+
 }
 else if (window.location.href.includes("settings.html")) {
     btn = document.querySelector("button");
     btn.addEventListener("click", () => {
         browser.storage.local.set({php_url: document.querySelector("input[name='url']").value});
-        window.history.go(-1);
+        location.reload();
     });
 
 
