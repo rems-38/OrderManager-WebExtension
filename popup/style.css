@@ -174,12 +174,31 @@ button:hover {
 }
 
 .container {
+  position: relative;
   max-width: 38em;
   padding: 1em 3em 1em 3em;
   margin: 0em auto;
   background-color: #fff;
   border-radius: 4.2px;
   box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
+}
+
+a.settings {
+  position: absolute;
+  top: 0;
+  right: 1%;
+  padding: 0.8em;
+  color: #f0a500;
+  text-decoration: none;
+  transition: 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+
+a.back {
+  color: #f0a500;
+  text-decoration: none;
+  transition: 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
 }
 
 .col-half {

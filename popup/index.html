@@ -17,32 +17,37 @@
         <!-- button pour fetch les données de la page courante et compléter les informations -->
         <!-- <button id="fetch">Fetch actual page data</button> -->
 
-        <form action="index.html" method="POST">
+        <a class="settings" href="settings.html">
+            <i class="fa-solid fa-cog"></i>
+        </a>
+
+        <form action="" method="POST">
+            <input type="hidden" name="url_for_php" value="">
             <div class="row">
                 <h4>Ajout d'une commande</h4>
                 <div class="input-group input-group-icon">
-                    <input type="text" name="name" id="name" placeholder="Nom de l'utilisateur">
+                    <input type="text" name="user" placeholder="Nom de l'utilisateur" autocomplete="off">
                     <div class="input-icon">
                         <i class="fa fa-user"></i>
                     </div>
                 </div>
     
                 <div class="input-group input-group-icon">
-                    <input type="text" name="product" id="product" placeholder="Nom du service/produit">
+                    <input type="text" name="service" placeholder="Nom du service/produit" autocomplete="off">
                     <div class="input-icon">
                         <i class="fa-solid fa-folder"></i>
                     </div>
                 </div>
                 
                 <div class="input-group input-group-icon">
-                    <input type="text" name="description" id="description" placeholder="Description">
+                    <input type="text" name="description" placeholder="Description" autocomplete="off">
                     <div class="input-icon">
                         <i class="fa-solid fa-circle-info"></i>
                     </div>
                 </div>
                 
                 <div class="input-group input-group-icon">
-                    <select name="platform" id="platform">
+                    <select name="platform">
                         <option value="Fiverr" selected>Fiverr</option>
                         <option value="ComeUp">ComeUp</option>
                         <option value="PeoplePerHour">PeoplePerHour</option>
@@ -55,7 +60,7 @@
                 </div>
 
                 <div class="input-group input-group-icon">
-                    <input type="number" name="description" id="description" placeholder="Prix" step="0.01">
+                    <input type="number" name="price" placeholder="Prix" step="0.01">
                     <div class="input-icon">
                         <i class="fa-solid fa-euro-sign"></i>
                     </div>
@@ -67,31 +72,31 @@
                     <h4>Date de livraison</h4>
                     <div class="input-group">
                         <div class="col-third">
-                            <input type="text" placeholder="DD">
+                            <input type="text" name="dateD" placeholder="DD" autocomplete="off">
                         </div>
                         <div class="col-third">
-                            <input type="text" placeholder="MM">
+                            <input type="text" name="dateM" placeholder="MM" autocomplete="off">
                         </div>
                         <div class="col-third">
-                            <input type="text" placeholder="YYYY">
+                            <input type="text" name="dateY" placeholder="YYYY" autocomplete="off">
                         </div>
                     </div>
                 </div>
                 <div class="col-half">
                     <h4>Mode</h4>
                     <div class="input-group">
-                        <input id="mode-date" type="radio" name="mode" value="date" onclick="modeChange('date')" checked>
+                        <input type="radio" id="mode-date" name="mode" value="date" checked>
                         <label for="mode-date">Date</label>
-                        <input id="mode-time" type="radio" name="mode" value="time" onclick="modeChange('time')">
+                        <input type="radio" id="mode-time" name="mode" value="time">
                         <label for="mode-time">Temps</label>
                     </div>
                 </div>
             </div>
 
-            <button type="submit">Valider</button>
+            <button type="submit" name="submit">Ajouter</button>
         </form>
     </div>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

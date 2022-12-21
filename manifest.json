@@ -7,7 +7,8 @@
     "description": "Outil de gestion de commande - Partie ajouts de commandes via les sites Web",
 
     "permissions": [
-        "activeTab"
+        "activeTab",
+        "storage"
     ],
 
     "browser_action": {
